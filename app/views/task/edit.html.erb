@@ -1,4 +1,4 @@
-<h1>Create a new Task</h1>
+<h1>Edit Task</h1>
 
 <% if @task && @task.errors.any?  %>
 <p>Check below for the following errors</p>
@@ -9,7 +9,7 @@
 </ul>
 <% end %>
 
-<%= form_with scope: :task, url: '/task', local: true do |f| %>
+<%= form_with(model: @task, local: true) do |f| %>
 
 <p>
     <%= f.label :task %><br />
@@ -20,6 +20,6 @@
     <%= f.label :comments %><br />
     <%= f.text_area :comments %>
 </p>
-<%= f.submit "Create Task", disable_with: 'Creating...' %>
+<%= f.submit "Update Task", disable_with: 'Updating...' %>
 
 <% end %>
