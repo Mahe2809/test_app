@@ -1,16 +1,7 @@
 <h1>Create a new Task</h1>
 
-<% if @task && @task.errors.any?  %>
-<p>Check below for the following errors</p>
-<ul>
-    <% @task.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
-    <% end %>
-</ul>
-<% end %>
-
+<%= render 'error_messages' %>
 <%= form_with scope: :task, url: '/task', local: true do |f| %>
-
 <p>
     <%= f.label :task %><br />
     <%= f.text_field :task %>
@@ -23,3 +14,7 @@
 <%= f.submit "Create Task", disable_with: 'Creating...' %>
 
 <% end %>
+
+<p>
+<%= link_to  "Go Back", "/task" %>
+</p>
