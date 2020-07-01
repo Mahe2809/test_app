@@ -9,7 +9,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="font-common">
+    <%= render 'layouts/navigation_bar' %>
     <%= yield %>
   </body>
 </html>

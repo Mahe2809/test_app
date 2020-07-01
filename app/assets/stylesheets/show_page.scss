@@ -1,0 +1,48 @@
+.show-tasks{
+
+}
+
+.flash-message{
+    color: #00c853;
+    text-align: center;
+    margin: 20px 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.task-comments{
+
+    border: 1px solid lightgray;
+    margin: 10px 40px;
+    padding: 10px;
+    text-align: center;
+
+    .head{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .content{
+        color: #0d47a1;
+    }
+}
+
+.quick-links{
+
+    margin: 0 40px;
+    font-weight: bold;
+    .edit{
+        color: #00c853;
+        margin-right: 5px;
+    }
+    
+    .delete{
+        color: #d50000;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    
+    .back{
+        margin-left: 5px;
+        color: black;
+    }
+}

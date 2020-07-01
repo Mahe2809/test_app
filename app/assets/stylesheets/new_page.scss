@@ -1,0 +1,37 @@
+.form{
+    margin: 0 60px;
+}
+
+.my-form{
+    border: 1px solid lightgrey;
+    // max-width: max-content;
+    padding: 20px;
+}
+
+.label{
+    // color: black;
+    margin-right: 10px;
+}
+
+.field{
+    // color: black;
+    width: 100%;
+}
+
+.field{
+    width: 100%;
+}
+
+.btn-create{
+    color: black;
+}
+
+.error-messages{
+    margin: 10px 60px;
+    background: rgba(213, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}

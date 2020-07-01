@@ -1,16 +1,24 @@
-<% flash.each do |name, msg| %>
-    <p>
+<div class="show-tasks">
+    <% flash.each do |name, msg| %>
+    <p class="flash-message">
         <%= msg %>
     </p>
-<% end %>
+    <% end %>
 
-<h1>ARTICLE</h1>
+    <h1 class="header-index">Your Task</h1>
 
-<p> Task: <%= @task.task %> </p>
-<p> Comments: <%= @task.comments %> </p>
+    <div class="task-comments">
+        <p>
+            <span class="head">Task:</span> <span class="content"><%= @task.task %></span>
+        </p>
+        <p>
+            <span class="head">Comments:</span> <span class="content"><%= @task.comments %></span>
+        </p>
+    </div>
 
-<p>
-<%= link_to  "Edit", edit_task_path(@task.id) %> | 
-<%= link_to  "Delete", task_path(@task.id), method: :delete, data: { confirm: 'Are you sure?' } %> | 
-<%= link_to  "Go Back", "/task" %>
-</p>
+    <p class="quick-links">
+        <%= link_to  "Edit", edit_task_path(@task.id), class:"edit" %> |
+        <%= link_to  "Delete", task_path(@task.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"delete" %> |
+        <%= link_to  "Go Back", task_index_path,class:"back" %>
+    </p>
+</div>

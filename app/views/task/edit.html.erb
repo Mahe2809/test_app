@@ -1,20 +1,24 @@
-<h1>Edit Task</h1>
+<h1 class="header-index">Edit Task</h1>
 
 <%= render 'error_messages' %>
-<%= form_with(model: @task, local: true) do |f| %>
-<p>
-    <%= f.label :task %><br />
-    <%= f.text_field :task %>
-</p>
+<div class="form">
+    <%= form_with(model: @task, local: true) do |f| %>
+    <p>
+        <%= f.label :task, class:"label" %>
+        <%= f.text_field :task, class:"field" %>
+    </p>
 
-<p>
-    <%= f.label :comments %><br />
-    <%= f.text_area :comments %>
-</p>
-<%= f.submit "Create Task", disable_with: 'Creating...' %>
+    <p>
+        <%= f.label :comments, class:"label" %>
+        <%= f.text_area :comments, class:"field" %>
+    </p>
+    <%= f.submit "Update Task", disable_with: 'Updating...', class:"btn-this-app" %>
 
-<% end %>
+    <% end %>
+</div>
 
-<p>
-<%= link_to  "Go Back", "/task" %>
-</p>
+<hr>
+
+<div class="my-link">
+    <%= link_to  "Go Back", task_index_path, class:"btn-this-app" %> 
+</div>

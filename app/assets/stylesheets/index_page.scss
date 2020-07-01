@@ -1,0 +1,47 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.font-common{
+    font-family: monospace;
+}
+
+.border{
+    border: 1px solid lightgrey;
+}
+
+.header-index{
+    text-align: center;
+    
+}
+
+.index-table{
+    margin: auto;
+}
+
+.table-head-row{
+    text-align: center;
+}
+.table-data-row{
+    padding: 10px;
+}
+.task{
+    width: 150px;
+}
+.comments{
+    width: 400px;
+}
+.actions{
+    width: 200px;
+}
+
+.my-link{
+    text-align: center;
+}
+
+.btn-this-app{
+    background: #00c853;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px lightgray;
+    color: white;
+    font-weight: bold;
+}
