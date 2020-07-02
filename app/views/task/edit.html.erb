@@ -1,6 +1,6 @@
 <h1 class="header-index">Edit Task</h1>
 
-<%= render 'error_messages' %>
+<%= render 'shared/error_messages', obj:@task %>
 <div class="form">
     <%= form_with(model: @task, local: true) do |f| %>
     <p>

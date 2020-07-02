@@ -1,5 +1,11 @@
 <h1 class="header-index">My Tasks</h1>
 
+<% flash.each do |name, msg| %>
+<p class="flash-message">
+    <%= msg %>
+</p>
+<% end %>
+
 <table class="index-table">
     <thead>
         <tr>
@@ -17,12 +23,12 @@
             <td class="table-data-row border"> <%= task.task %> </td>
             <td class="table-data-row border"> <%= task.comments %> </td>
             <td class="table-data-row border"> <%= task.user.username %> </td>
-            <td class="table-data-row border"> 
+            <td class="table-data-row border">
                 <%= task.created_at.day %> -
                 <%= task.created_at.month %> -
                 <%= task.created_at.year %>
             </td>
-            <td class="table-data-row border"> 
+            <td class="table-data-row border">
                 <%= task.updated_at.day %> -
                 <%= task.updated_at.month %> -
                 <%= task.updated_at.year %>
