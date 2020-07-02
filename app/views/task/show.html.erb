@@ -9,10 +9,32 @@
 
     <div class="task-comments">
         <p>
-            <span class="head">Task:</span> <span class="content"><%= @task.task %></span>
+            <span class="head">Task:</span> 
+            <span class="content"><%= @task.task %></span>
         </p>
         <p>
-            <span class="head">Comments:</span> <span class="content"><%= @task.comments %></span>
+            <span class="head">Comments:</span> 
+            <span class="content"><%= @task.comments %></span>
+        </p>
+        <p>
+            <span class="head">Created By:</span> 
+            <span class="content"><%= @task.user.username %></span>
+        </p>
+        <p>
+            <span class="head">Created On:</span> 
+            <span class="content">
+                <%= @task.created_at.day %> -
+                <%= @task.created_at.month %> -
+                <%= @task.created_at.year %>
+            </span>
+        </p>
+        <p>
+            <span class="head">Last Updated on:</span> 
+            <span class="content">
+                <%= @task.updated_at.day %> -
+                <%= @task.updated_at.month %> -
+                <%= @task.updated_at.year %>
+            </span>
         </p>
     </div>
 

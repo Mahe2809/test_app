@@ -1,10 +1,19 @@
 <h1 class="header-index">My Tasks</h1>
 
+<% flash.each do |name, msg| %>
+<p class="flash-message">
+    <%= msg %>
+</p>
+<% end %>
+
 <table class="index-table">
     <thead>
         <tr>
             <th class="table-head-row task border">Task</th>
             <th class="table-head-row comments border">Comments</th>
+            <th class="table-head-row creator border">Created By</th>
+            <th class="table-head-row created-updated border">Created On</th>
+            <th class="table-head-row created-updated border">Last Update On</th>
             <th class="table-head-row actions border" colspan="3">Actions</th>
         </tr>
     </thead>
@@ -13,6 +22,17 @@
         <tr class="table-content-row">
             <td class="table-data-row border"> <%= task.task %> </td>
             <td class="table-data-row border"> <%= task.comments %> </td>
+            <td class="table-data-row border"> <%= task.user.username %> </td>
+            <td class="table-data-row border">
+                <%= task.created_at.day %> -
+                <%= task.created_at.month %> -
+                <%= task.created_at.year %>
+            </td>
+            <td class="table-data-row border">
+                <%= task.updated_at.day %> -
+                <%= task.updated_at.month %> -
+                <%= task.updated_at.year %>
+            </td>
             <td class="table-data-row border"> <%= link_to  "Delete", task_path(task.id), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
             <td class="table-data-row border"> <%= link_to  "Show", task_path(task.id) %> </td>
             <td class="table-data-row border"> <%= link_to  "Edit", edit_task_path(task.id) %> </td>
