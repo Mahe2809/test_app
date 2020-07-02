@@ -1,0 +1,23 @@
+<h1 class="header-index">Edit User Details</h1>
+
+<%= render 'shared/error_messages', obj:@user %>
+<div class="form">
+    <%= form_with(model: @user, local: true) do |f| %>
+    <p>
+        <%= f.label :username, class:"label" %>
+        <%= f.text_field :username, class:"field" %>
+    </p>
+
+    <p>
+        <%= f.label :email, class:"label" %>
+        <%= f.email_field :email, class:"field" %>
+    </p>
+
+    <p>
+        <%= f.label :password, class:"label" %>
+        <%= f.password_field :password, class:"field" %>
+    </p>
+    <%= f.submit "Update User", disable_with: 'Updating...', class:"btn-this-app" %>
+
+    <% end %>
+</div>

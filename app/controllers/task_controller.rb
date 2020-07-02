@@ -52,7 +52,7 @@ class TaskController < ApplicationController
             flash[:notice]= "Article updated successfully" #Appears only when the task is created.
             redirect_to task_path(@task)    
         else
-            render 'new'
+            render 'edit'
         end
     end
 
