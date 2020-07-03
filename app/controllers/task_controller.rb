@@ -13,7 +13,8 @@ class TaskController < ApplicationController
     #redirects to index.html.erb
     # route: /task --> Get method
     def index 
-        @tasks = Task.all
+        @tasks = Task.paginate(page: params[:page], per_page: 3)
+        # @tasks = Task.all
     end
 
     #redirects to new.html.erb

@@ -6,12 +6,22 @@ class UsersController < ApplicationController
         @user = User.new
     end
 
+    def index 
+        # @users = User.all
+        @users = User.paginate(page: params[:page], per_page: 2)
+    end
+
+    def show
+        @user = User.find(params[:id])
+        @tasks = @user.tasks.paginate(page: params[:page], per_page: 3)
+    end
+
     def create
         # byebug
         @user = User.new(user_params)
         if @user.save
             flash[:notice] = "Welcome, #{@user.username}"
-            redirect_to "/task"
+            redirect_to users_path
         else
             render 'new'
         end
@@ -28,7 +38,7 @@ class UsersController < ApplicationController
 
         if @user.save
             flash[:notice]= "User Data updated successfully" #Appears only when the user is created.
-            redirect_to "/task"    
+            redirect_to users_path
         else
             render 'edit'
         end

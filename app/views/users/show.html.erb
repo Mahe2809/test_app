@@ -1,0 +1,35 @@
+<div class="show-tasks">
+    <% flash.each do |name, msg| %>
+    <p class="flash-message">
+        <%= msg %>
+    </p>
+    <% end %>
+
+    <h1 class="header-index"><%= @user.username %>'s profile</h1>
+
+    <div class="task-comments">
+        <p>
+            <span class="head">User name:</span> 
+            <span class="content"><%= @user.username %></span>
+        </p>
+        <p>
+            <span class="head">Email ID:</span> 
+            <span class="content"><%= @user.email %></span>
+        </p>
+        <p>
+            <span class="head">Account Created On:</span> 
+            <span class="content">
+                <%= @user.created_at.day %> -
+                <%= @user.created_at.month %> -
+                <%= @user.created_at.year %>
+            </span>
+        </p>
+    </div>
+
+    <%= render 'shared/tasks_table' %>
+
+    <p class="quick-links">
+        <%= link_to  "Edit", edit_user_path(@user.id), class:"edit" %> |
+        <%= link_to  "Go Back", users_path, class:"back" %>
+    </p>
+</div>

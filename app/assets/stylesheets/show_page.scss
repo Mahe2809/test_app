@@ -46,3 +46,30 @@
         color: black;
     }
 }
+
+
+.pagination{
+    display: block;
+    margin: 20px 0;
+    text-align: center;
+
+    a{
+        padding: 10px;
+        background: lightblue;
+        border-radius: 5px;
+        color: black;
+    }
+    .disabled{
+        padding: 10px;
+        border-radius: 5px;
+        background-color: lightgrey;
+    }
+    .current{
+        padding: 10px;
+        background: lightgreen;
+        border-radius: 5px;
+        color: black;
+        font-style: normal;
+        font-weight: bold;
+    }
+}
