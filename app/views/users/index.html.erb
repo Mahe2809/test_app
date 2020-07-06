@@ -1,3 +1,8 @@
+<% flash.each do |name, msg| %>
+    <p class="flash-message">
+        <%= msg %>
+    </p>
+<% end %>
 <%= will_paginate @users %>
 <table class="index-table">
     <thead>
@@ -11,13 +16,29 @@
     <tbody>
         <% @users.each do |user| %>
         <tr class="table-content-row">
-            <td class="table-data-row border"> 
-                <%= link_to user.username , user_path(user.id) %>
-            </td>
+            <% if user == current_user %>
+                <td class="table-data-row border"> 
+                    <%= link_to user.username , user_path(user.id) %>
+                </td>
+            <% else %>
+                <td class="table-data-row border"> <%= user.username %> </td>
+            <% end %>
             <td class="table-data-row border"> <%= user.email %> </td>
             <td class="table-data-row border"> <%= user.tasks.length %> </td>
-            <td class="table-data-row border"> <%= link_to  "View Profile", user_path(user.id) %> </td>
-            <td class="table-data-row border"> <%= link_to  "Edit Profile", edit_user_path(user.id) %> </td>
+            <% if user == current_user %>
+                <td class="table-data-row border"> 
+                    <%= link_to  "View Profile", user_path(user.id) %> 
+                </td>
+            <% else %>
+                <td class="table-data-row border"> View Profile </td>
+            <% end %>
+            <% if user == current_user %>
+                <td class="table-data-row border"> 
+                    <%= link_to  "Edit Profile", edit_user_path(user.id) %>
+                </td>
+            <% else %>
+                <td class="table-data-row border"> Edit Profile </td>
+            <% end %>
         </tr>
         <% end %>
     </tbody>

@@ -1,1 +1,7 @@
 <h1 class="header-index">Welcome to the Homepage</h1>
+
+<% flash.each do |name, msg| %>
+    <p class="flash-message">
+        <%= msg %>
+    </p>
+<% end %>

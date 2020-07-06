@@ -1,0 +1,22 @@
+<h1 class="header-index">Login</h1>
+<% flash.each do |name, msg| %>
+    <p class="flash-message">
+        <%= msg %>
+    </p>
+<% end %>
+<div class="form">
+    <%= form_with(scope: :session, url: login_path, local: true, class:"my-form") do |f| %>
+
+    <p>
+        <%= f.label :email, class:"label" %>
+        <%= f.email_field :email, class:"field", placeholder:"Enter your Email" %>
+    </p>
+
+    <p>
+        <%= f.label :password, class:"label" %>
+        <%= f.password_field :password, class:"field", placeholder:"Enter your Password" %>
+    </p>
+    <%= f.submit "Login", disable_with: 'Loging In...', class:"btn-this-app" %>
+
+    <% end %>
+</div>

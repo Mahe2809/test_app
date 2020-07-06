@@ -13,7 +13,8 @@ class TaskController < ApplicationController
     #redirects to index.html.erb
     # route: /task --> Get method
     def index 
-        @tasks = Task.paginate(page: params[:page], per_page: 3)
+        user = current_user
+        @tasks = user.tasks.paginate(page: params[:page], per_page: 3)
         # @tasks = Task.all
     end
 
@@ -27,7 +28,9 @@ class TaskController < ApplicationController
     # route: /task --> Post method
     def create
         @task = Task.new(task_params)
-        @task.user_id = User.first.id #a hardcode way of referencing
+        user = current_user
+        # @task.user_id = User.first.id #a hardcode way of referencing
+        @task.user_id = User.find_by(id:user_id).id
         if @task.save
             flash[:notice]= "Article created successfully" #Appears only when the task is created.
             redirect_to task_path(@task)    
