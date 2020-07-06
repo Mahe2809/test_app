@@ -2,6 +2,10 @@ class TaskController < ApplicationController
 
     #takes place for all the following "only" methods. it gets executed before any action takes place
     before_action :set_task, only: [:show, :edit, :update, :destroy]
+    #the require_user method runs first to check if the user is logged in or not. 
+    #only if he is logged in, will he be able to go to any definitions.
+    before_action :require_user 
+    before_action :check_if_same_user, only: [:edit, :update, :destory]
 
     #redirects to show.html.erb
     # route: /task/:id --> Get method
@@ -78,6 +82,13 @@ class TaskController < ApplicationController
 
     def task_params
         params.require(:task).permit(:task, :comments)
+    end
+
+    def check_if_same_user
+        if current_user.id != @task.user_id && !current_user.admin?
+            flash[:alert] = "Cannot edit that task. You have no access to edit that task"
+            redirect_to "/task"
+        end
     end
 
 end

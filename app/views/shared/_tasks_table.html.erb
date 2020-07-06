@@ -27,7 +27,7 @@
                 <%= task.updated_at.month %> -
                 <%= task.updated_at.year %>
             </td>
-            <% if task.user_id == current_user.id %>
+            <% if task.user_id == current_user.id || current_user.admin? %>
                 <td class="table-data-row border"> 
                     <%= link_to  "Delete", 
                         task_path(task.id), 

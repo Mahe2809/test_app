@@ -19,19 +19,42 @@
             </div>
 
         </li>
+
         <li class="nav-item btn-nav">
-            <%= link_to  current_user.username, user_path(current_user), class:"nav-link" %>
-        </li>
-        <li class="nav-item btn-nav">
-            <%= link_to  "Log Out", 
-                    logout_path, 
-                    class:"nav-link", 
-                    method: :delete, 
-                    data: { confirm: 'Are you sure you want to Logout?' } 
-                %>
-        </li>
-        <li class="nav-item btn-nav">
-            <%= link_to  "Users Present", users_path, class:"nav-link" %>
+            <div class="dropdown">
+                <span 
+                    class="tasks-dd nav-link dropdown-toggle" 
+                    data-toggle="dropdown">
+                    Profile <%= "(Admin)" if current_user.admin? %>
+                </span>
+                <ul class="dropdown-menu dd-shadow">
+                    <li class="nav-item">
+                        <%= link_to  current_user.username, user_path(current_user), class:"nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to  "Users Present", users_path, class:"nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to  "Log Out", 
+                            logout_path, 
+                            class:"nav-link", 
+                            method: :delete, 
+                            data: { confirm: 'Are you sure you want to Logout?' } 
+                        %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to  "Delete My Account", 
+                            user_path(current_user), 
+                            class:"nav-link text-danger", 
+                            method: :delete, 
+                            data:{ 
+                                confirm:"Are you sure you want to delete your account? 
+                                All the data will be lost" 
+                            } 
+                        %>
+                    </li>
+                </ul>
+            </div>
         </li>
         <% else %>
         <li class="nav-item btn-nav">

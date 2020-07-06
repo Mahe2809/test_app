@@ -29,8 +29,16 @@
     <%= render 'shared/tasks_table' %>
 
     <p class="quick-links">
-        <% if @user.id == current_user.id %>
-            <%= link_to  "Edit", edit_user_path(@user.id), class:"edit" %> |
+        <% if @user.id == current_user.id || current_user.admin? %>
+            <%= link_to  "Edit Me", edit_user_path(@user.id), class:"edit" %> |
+        <% end %>
+        <% if @user.id == current_user.id || current_user.admin? %>
+            <%= link_to  "Delete Me", 
+                user_path(@user.id), 
+                class:"delete", 
+                method: :delete, 
+                data: { confirm: 'Are you sure you want to delete this account?' }
+            %> |
         <% end %>
         <%= link_to  "Go Back", '/task', class:"back" %>
     </p>
