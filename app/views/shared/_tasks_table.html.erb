@@ -27,9 +27,28 @@
                 <%= task.updated_at.month %> -
                 <%= task.updated_at.year %>
             </td>
-            <td class="table-data-row border"> <%= link_to  "Delete", task_path(task.id), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+            <% if task.user_id == current_user.id %>
+                <td class="table-data-row border"> 
+                    <%= link_to  "Delete", 
+                        task_path(task.id), 
+                        method: :delete, 
+                        data: { confirm: 'Are you sure?' } 
+                    %> 
+                </td>
+                <td class="table-data-row border"> 
+                    <%= link_to  "Edit", edit_task_path(task.id) %> 
+                </td>
+            <% else %>
+                <td class="table-data-row border"> 
+                    Delete
+                </td>
+                <td class="table-data-row border"> 
+                    Edit
+                </td>
+            <% end %>
+            
             <td class="table-data-row border"> <%= link_to  "Show", task_path(task.id) %> </td>
-            <td class="table-data-row border"> <%= link_to  "Edit", edit_task_path(task.id) %> </td>
+            
         </tr>
         <% end %>
     </tbody>

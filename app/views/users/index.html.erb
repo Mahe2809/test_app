@@ -25,13 +25,9 @@
             <% end %>
             <td class="table-data-row border"> <%= user.email %> </td>
             <td class="table-data-row border"> <%= user.tasks.length %> </td>
-            <% if user == current_user %>
-                <td class="table-data-row border"> 
-                    <%= link_to  "View Profile", user_path(user.id) %> 
-                </td>
-            <% else %>
-                <td class="table-data-row border"> View Profile </td>
-            <% end %>
+            <td class="table-data-row border"> 
+                <%= link_to  "View Profile", user_path(user.id) %> 
+            </td>
             <% if user == current_user %>
                 <td class="table-data-row border"> 
                     <%= link_to  "Edit Profile", edit_user_path(user.id) %>

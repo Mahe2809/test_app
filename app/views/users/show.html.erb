@@ -29,7 +29,9 @@
     <%= render 'shared/tasks_table' %>
 
     <p class="quick-links">
-        <%= link_to  "Edit", edit_user_path(@user.id), class:"edit" %> |
-        <%= link_to  "Go Back", users_path, class:"back" %>
+        <% if @user.id == current_user.id %>
+            <%= link_to  "Edit", edit_user_path(@user.id), class:"edit" %> |
+        <% end %>
+        <%= link_to  "Go Back", '/task', class:"back" %>
     </p>
 </div>

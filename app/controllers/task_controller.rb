@@ -30,7 +30,7 @@ class TaskController < ApplicationController
         @task = Task.new(task_params)
         user = current_user
         # @task.user_id = User.first.id #a hardcode way of referencing
-        @task.user_id = User.find_by(id:user_id).id
+        @task.user_id = User.find_by(id:user).id
         if @task.save
             flash[:notice]= "Article created successfully" #Appears only when the task is created.
             redirect_to task_path(@task)    

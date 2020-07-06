@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
         if @user.save
             flash[:notice]= "User Data updated successfully" #Appears only when the user is created.
-            redirect_to users_path
+            redirect_to '/task'
         else
             render 'edit'
         end

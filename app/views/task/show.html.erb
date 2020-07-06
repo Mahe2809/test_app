@@ -39,8 +39,11 @@
     </div>
 
     <p class="quick-links">
-        <%= link_to  "Edit", edit_task_path(@task.id), class:"edit" %> |
-        <%= link_to  "Delete", task_path(@task.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"delete" %> |
+        <% if @task.user_id == current_user.id %>
+            <%= link_to  "Edit", edit_task_path(@task.id), class:"edit" %> |
+            <%= link_to  "Delete", task_path(@task.id), method: :delete, data: { confirm: 'Are you sure?' }, class:"delete" %> |
+        <% end %>
+        
         <%= link_to  "Go Back", task_index_path,class:"back" %>
     </p>
 </div>
